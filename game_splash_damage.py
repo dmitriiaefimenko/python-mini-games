@@ -1,4 +1,4 @@
-from common import main_loop
+from common import main_loop, paint_char, Color
 from enum import Enum
 from keyboard import is_pressed
 from random import Random
@@ -15,15 +15,15 @@ projectile_speed = 4.8 / fps[0]
 
 class Char(Enum):
     EMPTY = ' '
-    UNIT = '\033[94m◍\033[0m'
-    ENEMY = '\033[92m◯\033[0m'
+    UNIT = paint_char('◍', Color.BLUE)
+    ENEMY = paint_char('◯', Color.GREEN)
     PROJECTILE_H = '⎯'
     PROJECTILE_V = '|'
     PROJECTILE_HVL = '\\'
     PROJECTILE_HVR = '/'
-    EXPLOSION = '\033[91m✷\033[0m'
-    BORDER_RED = '\033[91m*\033[0m'
-    BORDER_BLUE = '\033[94m*\033[0m'
+    EXPLOSION = paint_char('✷', Color.RED)
+    BORDER_RED = paint_char('*', Color.RED)
+    BORDER_BLUE = paint_char('*', Color.BLUE)
 
 
 class Stage(Enum):
